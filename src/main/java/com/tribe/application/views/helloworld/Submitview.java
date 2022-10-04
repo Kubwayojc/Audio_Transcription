@@ -1,6 +1,6 @@
-package com.example.application.views.helloworld;
+package com.tribe.application.views.helloworld;
 
-import com.example.application.views.MainLayout;
+import com.tribe.application.views.MainLayout;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
@@ -13,23 +13,27 @@ import com.vaadin.flow.router.RouteAlias;
 @PageTitle("Hello World")
 @Route(value = "hello-world", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
-public class HelloWorldView extends HorizontalLayout {
+public class Submitview extends HorizontalLayout {
 
     private TextField name;
-    private Button sayHello;
+    private Button submit;
 
-    public HelloWorldView() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
-        sayHello.addClickListener(e -> {
-            Notification.show("Hello " + name.getValue());
+    public Submitview() {
+        name = new TextField("Paste your audio link");
+        submit = new Button("Submit");
+        submit.addClickListener(e -> {
+
+            if(name != null) {
+                Notification.show("Your audio has been submitted");
+            }
+
         });
-        sayHello.addClickShortcut(Key.ENTER);
+        submit.addClickShortcut(Key.ENTER);
 
         setMargin(true);
-        setVerticalComponentAlignment(Alignment.END, name, sayHello);
+        setVerticalComponentAlignment(Alignment.END, name, submit);
 
-        add(name, sayHello);
+        add(name, submit);
     }
 
 }

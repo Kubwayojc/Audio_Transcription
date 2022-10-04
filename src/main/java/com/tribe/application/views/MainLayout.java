@@ -1,10 +1,10 @@
-package com.example.application.views;
+package com.tribe.application.views;
 
 
-import com.example.application.components.appnav.AppNav;
-import com.example.application.components.appnav.AppNavItem;
-import com.example.application.views.about.AboutView;
-import com.example.application.views.helloworld.HelloWorldView;
+import com.tribe.application.components.appnav.AppNav;
+import com.tribe.application.components.appnav.AppNavItem;
+import com.tribe.application.views.about.AboutView;
+import com.tribe.application.views.helloworld.Submitview;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -40,7 +40,7 @@ public class MainLayout extends AppLayout {
 
     private void addDrawerContent() {
         H1 appName = new H1("Tribe");
-        appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
+        appName.addClassNames(LumoUtility.FontSize.XXLARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 
         Scroller scroller = new Scroller(createNavigation());
@@ -53,7 +53,7 @@ public class MainLayout extends AppLayout {
         // For documentation, visit https://github.com/vaadin/vcf-nav#readme
         AppNav nav = new AppNav();
 
-        nav.addItem(new AppNavItem("Hello World", HelloWorldView.class, "la la-globe"));
+        nav.addItem(new AppNavItem("Home", Submitview.class, "la la-globe"));
         nav.addItem(new AppNavItem("About", AboutView.class, "la la-file"));
 
         return nav;
